@@ -20,7 +20,7 @@ function shardStats(i) {
      <div id="Modal-Shard-Status-Card-Body" class="dark-mode modal-body">
      <p class="shard-modal-button"><b><i id="modal-shard-status${i}"  class="fa fa-circle ${data.color}" aria-hidden="true"> ${data.status}</i></b></p>
      <p class="shard-modal-button"><b><i id="modal-shard-cpu${i}"  class="fa fa-microchip" aria-hidden="true"> ${data.cpu}</i></b></p>
-     <p class="shard-modal-button"><b><i id="modal-shard-ram${i}" class="fas fa-memory" aria-hidden="true"> ${data.ram}</i></b></p>
+     <p class="shard-modal-button"><b><i id="modal-shard-ram${i}" class="fas fa-memory" aria-hidden="true"> ${data.ram.rss}</i></b></p>
      <p class="shard-modal-button"><b><i id="modal-shard-ping${i}" class="fas fa-table-tennis" aria-hidden="true"> ${data.ping}</i></b></p>
      <p class="shard-modal-button"><b><i id="modal-shard-servercount${i}" class="fa fa-server" aria-hidden="true"> ${data.guildcount}</i></b></p>
    </div>
@@ -36,7 +36,7 @@ function shardStats(i) {
       $('#exampleModalTitle').text(`Status of Shard ${i}`);
       $(`#modal-shard-status${i}`).text(` ` + data.status + ` since ` + formatTime(data.upsince, data.lastupdated));
       $(`#modal-shard-cpu${i}`).text(` ` + data.cpu);
-      $(`#modal-shard-ram${i}`).text(` ` + data.ram);
+      $(`#modal-shard-ram${i}`).text(` ` + data.ram.rss);
       $(`#modal-shard-ping${i}`).text(` ` + data.ping);
       $(`#modal-shard-servercount${i}`).text(` ` + data.guildcount);
     }, 1000)
@@ -81,7 +81,7 @@ function refreshStats(i, code) {
 
           $(`#general-status`).text(' ' + data.total.status + ` since ${formatTime(data.total.upsince, data.total.lastupdated)}`).addClass(color)
           $(`#general-status-cpu`).text(' ' + data.total.cpu)
-          $(`#general-status-ram`).text(' ' + data.total.ram)
+          $(`#general-status-ram`).text(' ' + data.total.ram.rss)
           $(`#general-status-ping`).text(' ' + data.total.ping)
           $(`#general-status-servercount`).text(' ' + data.total.guildcount)
         }
