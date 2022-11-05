@@ -1,6 +1,6 @@
 {
   "name": "sharding-stats-color",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A cool Dashboard & Manager for showing Live Stats and managing your Discord Bot/Shards",
   "main": "index.js",
   "dependencies": {
@@ -32,12 +32,10 @@
     "clusters",
     "framework"
   ],
-  {
-    "homepage": "https://github.com/Ssmidge/sharding-stats",
-    "bugs": {"url": "https://github.com/Ssmidge/sharding-stats/issues"},
-    "repository": {"type": "git", "url": "https://github.com/Ssmidge/sharding-stats.git"}
-  },
+  "homepage": "https://github.com/Ssmidge/sharding-stats",
+  "bugs": {"url": "https://github.com/Ssmidge/sharding-stats/issues"},
+  "repository": {"type": "git", "url": "https://github.com/Ssmidge/sharding-stats.git"},
+  "contributors": ["Ssmidge"],
   "author": "tga098",
-  "contributors": ["Ssmidge"]
   "license": "Apache 2.0"
 }
