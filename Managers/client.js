@@ -22,7 +22,10 @@ class Client {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(body),
-        }).then(res => res.json()).then((m) => this._handleMessage(m)).catch((e) => console.error(new Error(e)))
+        }).then(res => res.json()).then((m) => this._handleMessage(m)).catch((e) => { 
+            // We want to be able to use this in a try catch block, so we can handle the error
+            throw e;
+         })
     }
     async post() {
         const shards = [...this.client.ws.shards.values()]
@@ -34,7 +37,7 @@ class Client {
                     id: 0,
                     status: 0,
                     ping: 10,
-                    cpu: 3.45,
+                    cpu: 3.45,  
                     ram: { rss: 385, heapUsed: 185 }
                     membercount: 30446,
                     guildcount: 444,
@@ -59,7 +62,12 @@ class Client {
                 upsince,
             };
             if (typeof this.client?.cluster?.id !== "undefined") body.cluster = `${this.client.cluster.id}`;
-            this.sendPostData(body);
+            try {
+                await this.sendPostData(body).catch((e) => { throw e; });
+            } catch (e) {
+                // We want to be able to use this in a try catch block, so we can handle the error
+                Promise.reject(e);
+            }
         }
     }
     async receiveCPUUsage() {
