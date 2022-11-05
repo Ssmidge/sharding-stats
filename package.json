@@ -32,6 +32,12 @@
     "clusters",
     "framework"
   ],
+  {
+    "homepage": "https://github.com/Ssmidge/sharding-stats",
+    "bugs": {"url": "https://github.com/Ssmidge/sharding-stats/issues"},
+    "repository": {"type": "git", "url": "https://github.com/Ssmidge/sharding-stats.git"}
+  },
   "author": "tga098",
+  "contributors": ["Ssmidge"]
   "license": "Apache 2.0"
 }
