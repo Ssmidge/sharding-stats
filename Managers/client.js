@@ -24,7 +24,7 @@ class Client {
             body: JSON.stringify(body),
         }).then(res => res.json()).then((m) => this._handleMessage(m)).catch((e) => { 
             // We want to be able to use this in a try catch block, so we can handle the error
-            throw e;
+            throw new Error(e);
          })
     }
     async post() {
@@ -66,7 +66,7 @@ class Client {
                 await this.sendPostData(body).catch((e) => { throw e; });
             } catch (e) {
                 // We want to be able to use this in a try catch block, so we can handle the error
-                Promise.reject(e);
+                throw new Error(e);
             }
         }
     }
@@ -98,7 +98,7 @@ class Client {
 
     _autopost() {
         setInterval(() => {
-            this.post()
+            this.post();
         }, this.config.postinterval)
     }
 
